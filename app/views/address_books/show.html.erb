@@ -23,6 +23,11 @@
   <%=h @address_book.email %>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%=h @address_book.tags.join(',')  %>
+</p>
+
 
 <%= link_to 'Edit', edit_address_book_path(@address_book) %> |
 <%= link_to 'Back', address_books_path %>

@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :address_books
+  map.root :controller => "address_books", :action => :index
+  map.resources :address_books, :collection => {:get_city_list => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
 

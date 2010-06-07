@@ -6,6 +6,15 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>AddressBooks: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag 'jquery.1.4.2.min', 'jquery.autocomplete.min.js'  %>
+  <%= stylesheet_link_tag "jquery.autocomplete" %>
+  <script>
+    jQuery(document).ready(function(){
+      jQuery("#address_book_city").autocomplete('/address_books/get_city_list', {'limit': 10 });
+    });
+  </script>
+
+
 </head>
 <body>
 

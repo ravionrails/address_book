@@ -17,11 +17,11 @@
 development:
   adapter: mysql
   encoding: utf8
-  reconnect: false
+  #reconnect: false
   database: ContactInfo_development
   pool: 5
   username: sahildave
-  password:
+  password: 
 #  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -35,7 +35,7 @@ test:
   pool: 5
   username: sahildave
   password:
-  socket: /var/run/mysqld/mysqld.sock
+#  socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql
@@ -45,5 +45,5 @@ production:
   pool: 5
   username: sahildave
   password:
-  socket: /var/run/mysqld/mysqld.sock
+#  socket: /var/run/mysqld/mysqld.sock
 

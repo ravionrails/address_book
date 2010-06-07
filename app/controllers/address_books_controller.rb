@@ -41,6 +41,7 @@ class AddressBooksController < ApplicationController
   # POST /address_books.xml
   def create
     @address_book = AddressBook.new(params[:address_book])
+    @address_book.tag_list = params[:tags]
 
     respond_to do |format|
       if @address_book.save
@@ -79,5 +80,12 @@ class AddressBooksController < ApplicationController
       format.html { redirect_to(address_books_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def get_city_list
+    @cities = AddressBook.all( :conditions => "city LIKE '%#{params[:q]}%'", :select => 'city')
+    @cities_list = []
+    @cities.each { |add| @cities_list << "#{add.city} " }
+    render :text => @cities_list
   end
 end
