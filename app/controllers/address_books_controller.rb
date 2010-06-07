@@ -2,7 +2,7 @@ class AddressBooksController < ApplicationController
   # GET /address_books
   # GET /address_books.xml
   def index
-    @address_books = AddressBook.all
+    @address_books = AddressBook.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -6,6 +6,18 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+.odd{
+    background-color:#D9FC94;
+}
+.even{
+    background-color:#F9C78A;
+}
+
+tr.header{
+    background-color:black;
+    color:white;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
