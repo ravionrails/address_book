@@ -1,0 +1,27 @@
+<h1>Cities List</h1>
+
+<table width="100%">
+  <tr class="header">
+    
+    <th>City</th>
+    <th>No. of People</th>
+    <th>Name</th>
+  </tr>
+
+
+<% @cities.each do |c| %>
+  <tr class="<%= cycle 'odd', 'even'  %>">
+    <td><%=h c.city %></td>
+    <td><%=h c.No_of_People %></td>
+    <td>
+      <%= AddressBook.random_five_peoples(c.city).map(&:name).join(',') %>
+    </td>
+    
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New address_book', new_address_book_path %>

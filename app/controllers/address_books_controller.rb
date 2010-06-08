@@ -1,4 +1,15 @@
 class AddressBooksController < ApplicationController
+
+  def home
+    @cities = AddressBook.all(:select => "city, count(*) as No_of_People, name" , :group => :city, :order => "No_of_People Desc", :limit => 5)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @address_books }
+    end
+  end
+
+
   # GET /address_books
   # GET /address_books.xml
   def index
