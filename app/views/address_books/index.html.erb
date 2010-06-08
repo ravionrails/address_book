@@ -9,27 +9,31 @@
     <th>Email</th>
     <th>Actions</th>
   </tr>
+<% form_tag '/address_books/print_address' do %>
   <tr><td colspan="6" align="right"><%= page_entries_info @address_books %></td></tr>
   <tr><td colspan="6" align="right"><% paginated_section @address_books do %></td></tr>
 
-<% @address_books.each do |address_book| %>
-  <tr class="<%= cycle 'odd', 'even'  %>">
-    <td><%=h address_book.name %></td>
-    <td><%=h address_book.address %></td>
-    <td><%=h address_book.city %></td>
-    <td><%=h address_book.phone %></td>
-    <td><%=h address_book.email %></td>
-    <td align="center">
-      <%= link_to 'Show', address_book %> |
-      <%= link_to 'Edit', edit_address_book_path(address_book) %> |
-      <%= link_to 'Destroy', address_book, :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-    
-  </tr>
+  <% @address_books.each do |address_book| %>
+    <tr class="<%= cycle 'odd', 'even'  %>">
+      <td><%= check_box_tag 'print_add[]', address_book.id %><%=h address_book.name %></td>
+      <td><%=h address_book.address %></td>
+      <td><%=h address_book.city %></td>
+      <td><%=h address_book.phone %></td>
+      <td><%=h address_book.email %></td>
+      <td align="center">
+        <%= link_to 'Show', address_book %> |
+        <%= link_to 'Edit', edit_address_book_path(address_book) %> |
+        <%= link_to 'Destroy', address_book, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
 
-<% end %>
+  <% end %>
+
 <tr><td colspan="6" align="right"><% end %></td></tr>
+<%= submit_tag 'Print Address' %>
+<% end %>
 </table>
+
 
 <br />
 

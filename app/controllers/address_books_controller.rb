@@ -99,4 +99,21 @@ class AddressBooksController < ApplicationController
     @cities.each { |add| @cities_list << "#{add.city} " }
     render :text => @cities_list
   end
+
+  def print_address
+    @addresses = []
+    params[:print_add].each do |p|
+      @addresses << AddressBook.find(p)
+    end
+    respond_to do |format|
+      format.pdf do
+                    render :pdf => "print_address",
+                           #:template => "#{RAILS_ROOT}/lib/templates/bill/#{@template_file}.pdf.erb",
+                           :layout => 'pdf',
+                           :page_size => 'Letter'
+
+                end
+    end
+  end
+  
 end

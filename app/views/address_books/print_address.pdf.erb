@@ -1,0 +1,9 @@
+<% @addresses.each do |add| %>
+  <h1><%= add.name  %></h1>
+  <ul style="list-style:none">
+    <li><b>Phone No. : </b><%= add.phone %>; <b>Email : </b><%= add.email %></li>
+    <li><%= "Address : #{add.address}" %> </li>
+    <li><%= add.city %></li>
+  </ul>
+  <hr/>
+<% end %>
